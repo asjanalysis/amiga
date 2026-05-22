@@ -1,0 +1,169 @@
+:root {
+  color-scheme: dark;
+  --ink: #f7f4ff;
+  --muted: #b9acd8;
+  --pink: #ff4fd8;
+  --cyan: #31e7ff;
+  --gold: #ffd166;
+  --violet: #7c4dff;
+  --green: #75ff8f;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+
+body {
+  color: var(--ink);
+  font-family: "Trebuchet MS", Verdana, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,79,216,.25), transparent 30%),
+    radial-gradient(circle at 82% 20%, rgba(49,231,255,.18), transparent 28%),
+    linear-gradient(135deg, #060513 0%, #151039 48%, #07101f 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.035) 0, rgba(255,255,255,.035) 1px, transparent 1px, transparent 4px);
+  mix-blend-mode: screen;
+  opacity: .35;
+}
+
+.shell {
+  width: min(1100px, calc(100vw - 28px));
+  margin: 0 auto;
+  padding: 24px 0 36px;
+}
+
+.marquee {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .75rem;
+  margin: 0 0 6px;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1 {
+  margin-bottom: 6px;
+  font-size: clamp(2.2rem, 8vw, 5.8rem);
+  line-height: .88;
+  letter-spacing: -.06em;
+  color: #fff;
+  text-shadow: 0 4px 0 #27156c, 0 7px 0 #ff4fd8, 0 0 24px rgba(49,231,255,.75);
+}
+
+.tagline { color: var(--muted); margin-bottom: 0; font-size: 1rem; }
+
+.status-card, .info-grid article {
+  border: 2px solid rgba(255,255,255,.18);
+  background: linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+  box-shadow: 0 18px 45px rgba(0,0,0,.35), inset 0 0 26px rgba(49,231,255,.08);
+}
+
+.status-card {
+  min-width: 230px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  text-align: right;
+}
+
+.status-card span, .status-card em { display: block; color: var(--muted); font-style: normal; }
+.status-card strong { display: block; color: var(--gold); font-size: 1.05rem; margin: 4px 0; }
+
+.game-frame {
+  position: relative;
+  border: 8px solid #20115a;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 0 2px #ff4fd8, 0 0 0 6px #31e7ff, 0 30px 80px rgba(0,0,0,.58), 0 0 80px rgba(255,79,216,.25);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #050414;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: radial-gradient(circle, rgba(8,5,27,.62), rgba(1,0,8,.86));
+  backdrop-filter: blur(2px);
+}
+
+.overlay.hidden { display: none; }
+
+.panel {
+  width: min(520px, 100%);
+  padding: 26px;
+  text-align: center;
+  border-radius: 24px;
+  border: 2px solid rgba(255,255,255,.22);
+  background: linear-gradient(135deg, rgba(255,79,216,.2), rgba(49,231,255,.13)), rgba(10,8,34,.88);
+  box-shadow: 0 0 60px rgba(49,231,255,.28);
+}
+
+.panel h2 {
+  margin-bottom: 8px;
+  font-size: clamp(2.1rem, 6vw, 4rem);
+  letter-spacing: -.05em;
+  color: #fff;
+  text-shadow: 0 3px 0 #ff4fd8, 0 0 22px rgba(49,231,255,.9);
+}
+
+button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  margin: 14px 0 10px;
+  color: #12051f;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--gold), var(--green), var(--cyan));
+  box-shadow: 0 8px 0 #5a239a, 0 0 26px rgba(117,255,143,.45);
+  cursor: pointer;
+}
+
+button:active { transform: translateY(4px); box-shadow: 0 4px 0 #5a239a, 0 0 18px rgba(117,255,143,.45); }
+.small { color: var(--muted); font-size: .86rem; line-height: 1.45; margin-bottom: 0; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.info-grid article { padding: 18px; border-radius: 18px; }
+.info-grid h3 { color: var(--gold); margin-bottom: 8px; }
+.info-grid p { color: var(--muted); line-height: 1.5; margin-bottom: 0; }
+
+@media (max-width: 720px) {
+  .marquee { display: block; }
+  .status-card { margin-top: 14px; text-align: left; }
+  .info-grid { grid-template-columns: 1fr; }
+  .game-frame { border-width: 4px; border-radius: 16px; }
+}
