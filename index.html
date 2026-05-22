@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amiga Starfire</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="marquee" aria-label="Game title and controls">
+      <div>
+        <p class="eyebrow">ASJANALYSIS PRESENTS</p>
+        <h1>AMIGA STARFIRE</h1>
+        <p class="tagline">A neon pixel-art sci-fi scrolling shooter for modern browsers.</p>
+      </div>
+      <div class="status-card">
+        <span>Controls</span>
+        <strong>WASD / Arrows</strong>
+        <em>Space or Z to fire</em>
+      </div>
+    </section>
+
+    <section class="game-frame">
+      <canvas id="game" width="384" height="216" aria-label="Amiga Starfire game canvas"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="panel">
+          <p class="eyebrow">1980s arcade-inspired</p>
+          <h2>AMIGA STARFIRE</h2>
+          <p>Blast through the Chromatic Belt, collect weapon crystals, and survive the drone fleets.</p>
+          <button id="startButton" type="button">Start Mission</button>
+          <p class="small">Keyboard: arrows/WASD move, Space/Z fire, P pause, M mute. Touch: drag ship to fly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-grid" aria-label="Game information">
+      <article>
+        <h3>Mission</h3>
+        <p>Defend the orbital lanes from crystalline raiders and biomech drones.</p>
+      </article>
+      <article>
+        <h3>Power-ups</h3>
+        <p><strong>W</strong> upgrades spread fire, <strong>S</strong> restores shields, <strong>L</strong> grants an extra life.</p>
+      </article>
+      <article>
+        <h3>Style</h3>
+        <p>Low-resolution canvas, chunky sprites, dithering, bright palettes, and punchy synth bleeps.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
